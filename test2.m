@@ -2,10 +2,20 @@ close all
 clear
 clc
 
-for idx = 2:50
-	phiValue = phiFun(uint64(idx));
-	disp([idx phiValue]);
-end
+
+a = uint64(51241);
+n = uint64(199184);
+gcd(a, n)
+
+% a_inv = fastPowerMod(a, uint64(10), n)
+a_inv = fastPowerMod(a, phiFun(n)-1, n)
+mod(a*a_inv, n)
+
+
+% for idx = 2:50
+% 	phiValue = phiFun(uint64(idx));
+% 	disp([idx phiValue]);
+% end
 
 
 % a1_uint = uint64(5591980800) - 4;

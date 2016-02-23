@@ -27,12 +27,18 @@ M_uint = prod(modulus_uint, 'native');
 combRemainder_uint = sum((M_uint ./ modulus_uint) .* remainders_uint, 'native');
 combModulus_uint = sum(M_uint ./ modulus_uint, 'native');
 
-% phiN_uint = prod(modulus_uint - 1, 'native');
+phiN_uint = prod(modulus_uint - 1, 'native');
 % phiN_uint = phiFun(modulus_uint);
-phiN_uint = phiFun(M_uint);
+% phiN_uint = phiFun(M_uint);
 % phiN_uint = 1854406656;
 
-fastPowerMod(combModulus_uint, phiN_uint, M_uint)
+% fastPowerMod(combModulus_uint, phiN_uint, M_uint)
+
+% gcd(combModulus_uint, M_uint)
+% disp('Text');
+% combModulus_uint
+% M_uint
+% disp('Text');
 
 invCombModulus_uint = fastPowerMod(combModulus_uint, phiN_uint-1, M_uint);
 
