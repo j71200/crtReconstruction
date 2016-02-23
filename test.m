@@ -5,8 +5,8 @@ clc
 % inputImage = imread('./lena_gray.png');
 % inputImage_uint = uint64(inputImage);
 
-height = 8;
-width  = 8;
+height = 128;
+width  = 128;
 inputImage_uint = uint64(randi([0,255], height, width));
 
 divisor = 4;
