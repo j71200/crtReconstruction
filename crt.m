@@ -28,7 +28,9 @@ combRemainder_uint = sum((N_uint ./ modulus_uint) .* remainders_uint, 'native');
 combModulus_uint = sum(N_uint ./ modulus_uint, 'native');
 
 % phiN_uint = uint64(1854406656);
-phiN_uint = prod(modulus_uint-1, 'native');  % 4412666879
+
+% 4412666879
+phiN_uint = prod(modulus_uint-1, 'native')
 
 % disp('============');
 % res_uint = fastPowerMod(base_uint, power_uint, modNum_uint)
