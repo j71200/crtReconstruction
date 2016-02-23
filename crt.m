@@ -1,5 +1,5 @@
 % Chinese Remainder Theorem
-function [x_uint, N_uint] = crt(remainders_uint, modulus_uint)
+function [x_uint, M_uint] = crt(remainders_uint, modulus_uint)
 
 numOfRem = length(remainders_uint);
 numOfMod = length(modulus_uint);
@@ -22,24 +22,22 @@ for idx = 1:numOfEquations-1
 	end
 end
 
-N_uint = prod(modulus_uint, 'native');
+M_uint = prod(modulus_uint, 'native');
 
-combRemainder_uint = sum((N_uint ./ modulus_uint) .* remainders_uint, 'native');
-combModulus_uint = sum(N_uint ./ modulus_uint, 'native');
+combRemainder_uint = sum((M_uint ./ modulus_uint) .* remainders_uint, 'native');
+combModulus_uint = sum(M_uint ./ modulus_uint, 'native');
 
-% phiN_uint = uint64(1854406656);
+% phiN_uint = prod(modulus_uint - 1, 'native');
+% phiN_uint = phiFun(modulus_uint);
+phiN_uint = phiFun(M_uint);
+% phiN_uint = 1854406656;
 
-% 4412666879
-phiN_uint = prod(modulus_uint-1, 'native')
+fastPowerMod(combModulus_uint, phiN_uint, M_uint)
 
-% disp('============');
-% res_uint = fastPowerMod(base_uint, power_uint, modNum_uint)
-% disp('============');
+invCombModulus_uint = fastPowerMod(combModulus_uint, phiN_uint-1, M_uint);
 
-invCombModulus_uint = fastPowerMod(combModulus_uint, phiN_uint-1, N_uint);
+% disp(fastMultMod(invCombModulus_uint, combModulus_uint, M_uint))
 
-mod(invCombModulus_uint * combModulus_uint, N_uint)
-
-x_uint = mod(invCombModulus_uint * combRemainder_uint, N_uint);
+x_uint = fastMultMod(invCombModulus_uint, combRemainder_uint, M_uint);
 
 end

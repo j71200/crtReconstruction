@@ -5,8 +5,8 @@ clc
 % inputImage = imread('./lena_gray.png');
 % inputImage_uint = uint64(inputImage);
 
-height = 16;
-width  = 16;
+height = 8;
+width  = 8;
 inputImage_uint = uint64(randi([0,255], height, width));
 
 divisor = 4;
@@ -21,9 +21,9 @@ for groupIdx = 1:groupNum
 	reconDataMatrix_uint( (groupIdx-1) * divisor + 1 ) = reconData_uint(groupIdx);
 end
 
-tic
+
 invReconData_uint = crtInvReconstruct(reconData_uint, divisor, height, width);
-toc
+
 
 aa = double(inputImage_uint);
 bb = double(invReconData_uint);
