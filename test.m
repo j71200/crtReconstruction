@@ -16,28 +16,28 @@ recon_airplane_uint = crtReconstruct(inputImage_uint, divisor);
 toc
 
 disp('recon_baboon_uint');
-inputImage = imread('./baboon_gray.png');
+inputImage = imread('images/baboon_gray.png');
 inputImage_uint = uint64(inputImage);
 tic
 recon_baboon_uint = crtReconstruct(inputImage_uint, divisor);
 toc
 
 disp('recon_fruits_uint');
-inputImage = imread('./fruits_gray.png');
+inputImage = imread('images/fruits_gray.png');
 inputImage_uint = uint64(inputImage);
 tic
 recon_fruits_uint = crtReconstruct(inputImage_uint, divisor);
 toc
 
 disp('recon_lena_uint');
-inputImage = imread('./lena_gray.png');
+inputImage = imread('images/lena_gray.png');
 inputImage_uint = uint64(inputImage);
 tic
 recon_lena_uint = crtReconstruct(inputImage_uint, divisor);
 toc
 
 disp('recon_peppers_uint');
-inputImage = imread('./peppers_gray.png');
+inputImage = imread('images/peppers_gray.png');
 inputImage_uint = uint64(inputImage);
 tic
 recon_peppers_uint = crtReconstruct(inputImage_uint, divisor);
