@@ -14,7 +14,7 @@ M_uint = prod(coprimeNums_uint, 'native');
 
 for groupIdx = 1:(groupNum-1)
 	
-	disp([ round(100*groupIdx/groupNum) '%']);
+	disp([num2str(round(100*groupIdx/groupNum)) '%']);
 
 	groupStartIdx = (groupIdx-1) * divisor + 1;
 	groupEndIdx = groupStartIdx + divisor - 1;
