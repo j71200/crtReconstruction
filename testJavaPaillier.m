@@ -10,8 +10,8 @@ m_bigd = java.math.BigDecimal(num2str(m_uint));
 % =================
 % key gen
 % =================
-p_bigd = java.math.BigDecimal('1667');
-q_bigd = java.math.BigDecimal('1669');
+p_bigd = java.math.BigDecimal('373');
+q_bigd = java.math.BigDecimal('379');
 
 % p = 17;
 % q = 19;
@@ -73,13 +73,6 @@ recU_bigd = recU_temp_bigd.remainder(nSquare_bigd);
 recL_temp_bigd = recU_bigd.subtract(java.math.BigDecimal('1'));
 recL_temp_bigd = recL_temp_bigd.subtract(recL_temp_bigd.remainder(n_bigd));
 recL_bigd = recL_temp_bigd.divide(n_bigd);
-
-
-
-
-% temp_recU_uint = recU_uint - 1;
-% temp_recU_uint = temp_recU_uint - mod(temp_recU_uint, n_uint);
-% recL_uint = temp_recU_uint / n_uint;
 
 
 recM_bigd = recL_bigd.multiply(mu_bigd);

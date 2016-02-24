@@ -25,8 +25,8 @@ m_uint = uint64(m);
 % p = uint64(1667);
 % q = uint64(1669);
 
-p = uint64(251);
-q = uint64(257);
+p = uint64(373);
+q = uint64(379);
 
 
 phi_uint = (p-1) * (q-1);
@@ -44,13 +44,9 @@ mu_uint = fastPowerMod(phi_uint, phi_uint-1, n_uint);  % 49748
 % m = 1;
 r = uint64(3);
 
-c_uint = fastMultMod(fastPowerMod(g_uint, m_uint, nSquare_uint), fastPowerMod(r, n_uint, nSquare_uint), nSquare_uint);  % 3139926596
-
-% c_uint = fastPowerMod(g_uint, m_uint, nSquare_uint) * fastPowerMod(r, n_uint, nSquare_uint);
-% c_uint = mod(c_uint, nSquare_uint);
-
-
-
+g_temp_uint = fastPowerMod(g_uint, m_uint, nSquare_uint);
+r_temp_uint = fastPowerMod(r, n_uint, nSquare_uint);
+c_uint = fastMultMod(g_temp_uint, r_temp_uint, nSquare_uint);  % 3139926596
 
 
 % =================

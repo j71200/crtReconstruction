@@ -1,0 +1,23 @@
+m = 9
+p = 373
+q = 379
+
+mu_bigd = 36330
+g_temp_bigd = 1272304
+r_temp_bigd = 9559126081
+c_bigd = 8914209827
+recU_bigd = 19029129137
+recL_bigd = 134608
+recM_bigd = 9
+- - - - - - - - - - - - - - - - - - - - - - 
+mu_uint = 36330
+g_temp_uint = 1272304
+r_temp_uint = 11365152281
+c_uint = 10650542096
+recU_uint = 10449926990
+recL_uint = 73920
+recM_uint = 106068
+
+
+
+
