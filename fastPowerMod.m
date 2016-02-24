@@ -11,10 +11,34 @@ if powArea == 1
 	elseif power_uint == 1
 		res_uint = mod(base_uint, modNum_uint);
 	elseif mod(power_uint, 2) == 0
-		res_uint = mod(fastPowerMod(base_uint, power_uint/2, modNum_uint).^2, modNum_uint);
+		% res_uint = mod(fastPowerMod(base_uint, power_uint/2, modNum_uint).^2, modNum_uint);
+
+		res_temp_uint = fastPowerMod(base_uint, power_uint/2, modNum_uint);
+		res_uint = zeros(size(base_uint), 'uint64');
+		
+		for idx = 1:baseArea
+			res_uint(idx) = fastMultMod(res_temp_uint(idx), res_temp_uint(idx), modNum_uint);
+		end
+
+		% for idx = 1:size(res_temp_uint, 1)
+		% 	for jdx = 1:size(res_temp_uint, 2)
+		% 		res_uint(idx, jdx) = fastMultMod(res_temp_uint(idx, jdx), res_temp_uint(), modNum_uint);
+		% 	end
+		% end
+
 	elseif mod(power_uint, 2) == 1
-		res_uint = mod(fastPowerMod(base_uint, (power_uint-1)/2, modNum_uint).^2, modNum_uint);
-		res_uint = mod(res_uint .* base_uint, modNum_uint);
+		% res_uint = mod(fastPowerMod(base_uint, (power_uint-1)/2, modNum_uint).^2, modNum_uint);
+		res_temp_uint = fastPowerMod(base_uint, (power_uint-1)/2, modNum_uint);
+		res_uint = zeros(size(base_uint), 'uint64');
+		for idx = 1:baseArea
+			res_uint(idx) = fastMultMod(res_temp_uint(idx), res_temp_uint(idx), modNum_uint);
+		end
+
+		% res_uint = mod(res_uint .* base_uint, modNum_uint);
+		for idx = 1:baseArea
+			res_uint(idx) = fastMultMod(res_uint(idx), base_uint(idx), modNum_uint);
+		end
+
 	else
 		disp('Wrong');
 		power_uint
