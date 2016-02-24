@@ -12,9 +12,12 @@ coprimeNums_uint = uint64(COPRIME_LIST(1:divisor));
 M_uint = prod(coprimeNums_uint, 'native');
 
 
+step = groupNum / 50;
+nextTarget = step;
 for groupIdx = 1:(groupNum-1)
-	if (rand(1) < 20/groupNum)
+	if groupIdx > nextTarget
 		disp([num2str(round(100*groupIdx/groupNum)) '%']);
+		nextTarget = nextTarget + step;
 	end
 
 	groupStartIdx = (groupIdx-1) * divisor + 1;
