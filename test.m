@@ -5,14 +5,13 @@ clc
 divisor = 4; % M_uint = 
 
 
-height = 32;
-width  = 32;
-inputImage_uint = uint64(randi([0,255], height, width));
+% height = 32;
+% width  = 32;
+% inputImage_uint = uint64(randi([0,255], height, width));
 
 
-% inputImage = imread('images/airplane_gray.png');
-% inputImage_uint = uint64(inputImage);
-
+inputImage = imread('images/airplane_gray.png');
+inputImage_uint = uint64(inputImage);
 
 tic
 recon_airplane_uint = crtReconstruct(inputImage_uint, divisor);
@@ -61,14 +60,14 @@ toc
 % % end
 
 
-invReconData_uint = crtInvReconstruct(recon_airplane_uint, divisor, height, width);
+% invReconData_uint = crtInvReconstruct(recon_airplane_uint, divisor, height, width);
 
 
-aa = double(inputImage_uint);
-bb = double(invReconData_uint);
+% aa = double(inputImage_uint);
+% bb = double(invReconData_uint);
 % % cc = reconDataMatrix_uint;
 
-figure
-spy(abs(aa-bb))
+% figure
+% spy(abs(aa-bb))
 
 
