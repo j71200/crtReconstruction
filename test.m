@@ -2,37 +2,45 @@ close all
 clear
 clc
 
-divisor = 7; % M_uint = 90496116212886272;
+divisor = 4; % M_uint = 
 
-inputImage = imread('./airplane_gray.png');
-inputImage_uint = uint64(inputImage);
+
+height = 32;
+width  = 32;
+inputImage_uint = uint64(randi([0,255], height, width));
+
+
+% inputImage = imread('images/airplane_gray.png');
+% inputImage_uint = uint64(inputImage);
+
+
 tic
 recon_airplane_uint = crtReconstruct(inputImage_uint, divisor);
 toc
 
-inputImage = imread('./baboon_gray.png');
-inputImage_uint = uint64(inputImage);
-tic
-recon_baboon_uint = crtReconstruct(inputImage_uint, divisor);
-toc
+% inputImage = imread('./baboon_gray.png');
+% inputImage_uint = uint64(inputImage);
+% tic
+% recon_baboon_uint = crtReconstruct(inputImage_uint, divisor);
+% toc
 
-inputImage = imread('./fruits_gray.png');
-inputImage_uint = uint64(inputImage);
-tic
-recon_fruits_uint = crtReconstruct(inputImage_uint, divisor);
-toc
+% inputImage = imread('./fruits_gray.png');
+% inputImage_uint = uint64(inputImage);
+% tic
+% recon_fruits_uint = crtReconstruct(inputImage_uint, divisor);
+% toc
 
-inputImage = imread('./lena_gray.png');
-inputImage_uint = uint64(inputImage);
-tic
-recon_lena_uint = crtReconstruct(inputImage_uint, divisor);
-toc
+% inputImage = imread('./lena_gray.png');
+% inputImage_uint = uint64(inputImage);
+% tic
+% recon_lena_uint = crtReconstruct(inputImage_uint, divisor);
+% toc
 
-inputImage = imread('./peppers_gray.png');
-inputImage_uint = uint64(inputImage);
-tic
-recon_peppers_uint = crtReconstruct(inputImage_uint, divisor);
-toc
+% inputImage = imread('./peppers_gray.png');
+% inputImage_uint = uint64(inputImage);
+% tic
+% recon_peppers_uint = crtReconstruct(inputImage_uint, divisor);
+% toc
 
 
 
@@ -53,14 +61,14 @@ toc
 % % end
 
 
-% invReconData_uint = crtInvReconstruct(reconData_uint, divisor, height, width);
+invReconData_uint = crtInvReconstruct(recon_airplane_uint, divisor, height, width);
 
 
-% aa = double(inputImage_uint);
-% bb = double(invReconData_uint);
+aa = double(inputImage_uint);
+bb = double(invReconData_uint);
 % % cc = reconDataMatrix_uint;
 
-% figure
-% spy(abs(aa-bb))
+figure
+spy(abs(aa-bb))
 
 

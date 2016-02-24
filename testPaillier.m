@@ -9,9 +9,6 @@ m_uint = uint64(m);
 % =================
 % key gen
 % =================
-% p = 17;
-% q = 19;
-
 % p = uint64(277);
 % q = uint64(281);
 
@@ -40,7 +37,6 @@ mu_uint = fastPowerMod(phi_uint, phi_uint-1, n_uint);
 % =================
 % Encrypt
 % =================
-% m = 1;
 r = uint64(3);
 
 g_temp_uint = fastPowerMod(g_uint, m_uint, nSquare_uint);
