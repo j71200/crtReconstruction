@@ -14,11 +14,11 @@ M_uint = prod(coprimeNums_uint, 'native');
 
 step = groupNum / 50;
 nextTarget = step;
-for groupIdx = 1:(groupNum-1)
-	if groupIdx > nextTarget
-		disp([num2str(round(100*groupIdx/groupNum)) '%']);
-		nextTarget = nextTarget + step;
-	end
+parfor groupIdx = 1:(groupNum-1)
+	% if groupIdx > nextTarget
+	% 	disp([num2str(round(100*groupIdx/groupNum)) '%']);
+	% 	nextTarget = nextTarget + step;
+	% end
 
 	groupStartIdx = (groupIdx-1) * divisor + 1;
 	groupEndIdx = groupStartIdx + divisor - 1;
