@@ -15,22 +15,31 @@ elseif nnz(m_uint == 0) > 0
 	occupiedM_uint = m_uint(occupiedIndex);
 
 	nSquare_uint = n_uint^2;
-	c_uint = fastPowerMod(g_uint, occupiedM_uint, nSquare_uint) * fastPowerMod(r_uint, n_uint, nSquare_uint);
-	if c_uint == UINT64MAX
-		disp('Warning, c_uint == UINT64MAX');
-	end
-	c_uint = mod(c_uint, nSquare_uint);
 
-	cipherText = uint64(zeros(size(m_uint)));
+	g_temp_uint = fastPowerMod(g_uint, occupiedM_uint, nSquare_uint);
+	r_temp_uint = fastPowerMod(r_uint, n_uint, nSquare_uint);
+	c_uint = fastMultMod(g_temp_uint, r_temp_uint, nSquare_uint);
+	% c_uint = fastPowerMod(g_uint, occupiedM_uint, nSquare_uint) * fastPowerMod(r_uint, n_uint, nSquare_uint);
+	% if c_uint == UINT64MAX
+	% 	disp('Warning, c_uint == UINT64MAX');
+	% end
+	% c_uint = mod(c_uint, nSquare_uint);
+
+	cipherText = zeros(size(m_uint), 'uint64');
 	cipherText(occupiedIndex) = c_uint;
 
 else
 	nSquare_uint = n_uint^2;
-	c_uint = fastPowerMod(g_uint, m_uint, nSquare_uint) * fastPowerMod(r_uint, n_uint, nSquare_uint);
-	if c_uint == UINT64MAX
-		disp('Warning, c_uint == UINT64MAX');
-	end
-	c_uint = mod(c_uint, nSquare_uint);
+
+	g_temp_uint = fastPowerMod(g_uint, m_uint, nSquare_uint);
+	r_temp_uint = fastPowerMod(r_uint, n_uint, nSquare_uint);
+	c_uint = fastMultMod(g_temp_uint, r_temp_uint, nSquare_uint);
+
+	% c_uint = fastPowerMod(g_uint, m_uint, nSquare_uint) * fastPowerMod(r_uint, n_uint, nSquare_uint);
+	% if c_uint == UINT64MAX
+	% 	disp('Warning, c_uint == UINT64MAX');
+	% end
+	% c_uint = mod(c_uint, nSquare_uint);
 
 	cipherText = c_uint;
 end
