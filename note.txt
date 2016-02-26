@@ -13,8 +13,8 @@ q       = 65521
 divisor =     4
 
 ===========================================
-Reconstruct airplane時花了大約2400秒(用server)
-
+ - Reconstruct airplane時花了大約2400秒(用server)
+ - 使用parfor加上auxiMultiplier_uint後，一張512x512的圖大概花131秒(在mac air上跑)，大約是原本速度的18倍
 
 
 

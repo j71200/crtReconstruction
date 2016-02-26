@@ -7,8 +7,9 @@ divisor = 4; % M_uint =
 %    for 11.30sec
 % parfor  6.21sec
 
-height = 32;
-width  = 32;
+
+height = 512;
+width  = 512;
 inputImage_uint = uint64(randi([0,255], height, width));
 tic
 recon_data_uint = crtReconstruct(inputImage_uint, divisor);
