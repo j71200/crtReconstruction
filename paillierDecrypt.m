@@ -14,17 +14,28 @@ elseif nnz(c_uint == 0) > 0
 
 	nSquare_uint = n_uint^2;
 	recU_uint = fastPowerMod(occupiedC_uint, lambda_uint, nSquare_uint);
-	recL_uint = uint64(floor(double(recU_uint-1) / double(n_uint)));
-	recM_uint = mod(recL_uint * mu_uint, n_uint);
 
-	decryptedText_uint = uint64(zeros(size(c_uint)));
+	% recL_uint = uint64(floor(double(recU_uint-1) / double(n_uint)));
+	temp_recU_uint = recU_uint - 1;
+	temp_recU_uint = temp_recU_uint - mod(temp_recU_uint, n_uint);
+	recL_uint = temp_recU_uint / n_uint;
+	
+	% recM_uint = mod(recL_uint * mu_uint, n_uint);
+	recM_uint = fastMultMod(recL_uint, mu_uint, n_uint);
+
+	decryptedText_uint = zeros(size(c_uint), 'uint64');
 	decryptedText_uint(occupiedIndex) = recM_uint;
 
 else
 	nSquare_uint = n_uint^2;
 	recU_uint = fastPowerMod(c_uint, lambda_uint, nSquare_uint);
-	recL_uint = uint64(floor(double(recU_uint-1) / double(n_uint)));
-	recM_uint = mod(recL_uint * mu_uint, n_uint);
+	% recL_uint = uint64(floor(double(recU_uint-1) / double(n_uint)));
+	temp_recU_uint = recU_uint - 1;
+	temp_recU_uint = temp_recU_uint - mod(temp_recU_uint, n_uint);
+	recL_uint = temp_recU_uint / n_uint;
+	
+	% recM_uint = mod(recL_uint * mu_uint, n_uint);
+	recM_uint = fastMultMod(recL_uint, mu_uint, n_uint);
 
 	decryptedText_uint = recM_uint;
 end
