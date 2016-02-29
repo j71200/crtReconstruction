@@ -2,7 +2,7 @@
 % function [c_uint, recM] = testJavaPaillier(m_uint)
 clear
 clc
-m_uint = uint64(9);
+m_uint = uint64(0);
 
 m_bigd = java.math.BigDecimal(num2str(m_uint));
 
@@ -10,8 +10,8 @@ m_bigd = java.math.BigDecimal(num2str(m_uint));
 % =================
 % key gen
 % =================
-p_bigd = java.math.BigDecimal('373');
-q_bigd = java.math.BigDecimal('379');
+p_bigd = java.math.BigDecimal('37');
+q_bigd = java.math.BigDecimal('41');
 
 % p = 17;
 % q = 19;
@@ -60,7 +60,7 @@ r_temp_bigd = r_temp_bigd.remainder(nSquare_bigd);
 
 c_temp_bigd = g_temp_bigd.multiply(r_temp_bigd);
 c_bigd = c_temp_bigd.remainder(nSquare_bigd);  % 3139926596
-
+c_bigd
 
 
 % =================
@@ -77,7 +77,7 @@ recL_bigd = recL_temp_bigd.divide(n_bigd);
 
 recM_bigd = recL_bigd.multiply(mu_bigd);
 recM_bigd = recM_bigd.remainder(n_bigd);
-
+recM_bigd
 % recM = fastMultMod(recL_uint, mu_uint, n_uint);
 
 

@@ -3,7 +3,7 @@ clear
 clc
 
 
-originalImage_uint = uint64(900);
+originalImage_uint = uint64(0);
 
 
 % =================
@@ -25,7 +25,7 @@ encryptedImg_uint = paillierEncrypt(originalImage_uint, n_uint, g_uint, r_uint);
 % ==========================
 % Decrypt Image
 % ==========================
-recM_uint = paillierDecrypt(encryptedImg_uint, n_uint, lambda_uint, mu_uint);
+recM_uint = paillierDecrypt(encryptedImg_uint, n_uint, lambda_uint, mu_uint)
 
 
 
