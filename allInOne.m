@@ -88,9 +88,9 @@ encryptedImg_uint = paillierEncrypt(originalImage_uint * trickFactor_uint + 1, n
 % Embedding Watermark
 % ==========================
 % Step 3
-wmSignature2_idct_trick_uint = uint64(round(wmSignature2_idct * double(trickFactor_uint)));
-trickShift_uint = min(min(wmSignature2_idct_trick_uint));
-wmSignature2_idct_trick_uint = wmSignature2_idct_trick_uint - trickShift_uint + 1;
+% wmSignature2_idct_trick_uint = uint64(round(wmSignature2_idct * double(trickFactor_uint)));
+% trickShift_uint = min(min(wmSignature2_idct_trick_uint));
+% wmSignature2_idct_trick_uint = wmSignature2_idct_trick_uint - trickShift_uint + 1;
 
 encryptedWmSignature2_idct_uint = paillierEncrypt(wmSignature2_idct_trick_uint, n_uint, g_uint, r_uint);
 

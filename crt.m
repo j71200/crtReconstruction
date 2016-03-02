@@ -45,7 +45,7 @@ if ~exist('auxiMultiplier_uint', 'var')
 	end
 else
 	for idx = 1:length(modulus_uint)
-		m_i_uint = modulus_uint(idx);
+		% m_i_uint = modulus_uint(idx);
 		% combModulus_i_uint = combModulus_uint(idx);
 		remainders_i_uint = remainders_uint(idx);
 		auxiMultiplier_i_uint = auxiMultiplier_uint(idx);
